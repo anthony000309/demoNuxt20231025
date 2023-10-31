@@ -5,9 +5,11 @@ const app = express()
 
 const isDev = process.env.NODE_ENV !== 'production'
 
+const port = process.env.PORT || 3000;
+
 async function start () {
   const nuxt = await loadNuxt(isDev ? 'dev' : 'start')
-  await nuxt.listen(process.env.PORT, process.env.HOST)
+  await nuxt.listen(port, process.env.HOST)
 }
 
 start()
